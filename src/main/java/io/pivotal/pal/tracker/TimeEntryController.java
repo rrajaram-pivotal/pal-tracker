@@ -19,17 +19,17 @@ public class TimeEntryController {
     public ResponseEntity<TimeEntry> create(@RequestBody TimeEntry timeEntry)
     {
         timeEntry = timeEntryRepository.create(timeEntry);
-        return new ResponseEntity<>(timeEntry, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(timeEntry);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<TimeEntry> update(@PathVariable long id, @RequestBody TimeEntry timeEntry)
+    public ResponseEntity<TimeEntry> update(@PathVariable long id, TimeEntry timeEntry)
     {
         TimeEntry foundEntry = timeEntryRepository.update(id, timeEntry);
         if (foundEntry != null)
             return ResponseEntity.status(HttpStatus.OK).body(foundEntry);
         else
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.notFound().build();
     }
 
     @GetMapping("{id}")
