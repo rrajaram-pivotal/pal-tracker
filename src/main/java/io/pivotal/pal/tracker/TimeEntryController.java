@@ -23,7 +23,7 @@ public class TimeEntryController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<TimeEntry> update(@PathVariable long id, TimeEntry timeEntry)
+    public ResponseEntity<TimeEntry> update(@PathVariable long id, @RequestBody TimeEntry timeEntry)
     {
         TimeEntry foundEntry = timeEntryRepository.update(id, timeEntry);
         if (foundEntry != null)
