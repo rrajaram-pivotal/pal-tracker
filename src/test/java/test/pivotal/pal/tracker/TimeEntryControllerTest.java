@@ -94,7 +94,7 @@ public class TimeEntryControllerTest {
         long timeEntryId = 1L;
         long projectId = 987L;
         long userId = 654L;
-        TimeEntry expected = new TimeEntry(timeEntryId, projectId, userId, LocalDate.parse("2017-01-07"), 4);
+        TimeEntry expected = new TimeEntry(0L, projectId, userId, LocalDate.parse("2017-01-07"), 4);
         doReturn(expected)
             .when(timeEntryRepository)
             .update(eq(timeEntryId), any(TimeEntry.class));
