@@ -3,10 +3,11 @@ package io.pivotal.pal.tracker;
 
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Component
+
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     private long index =0;
