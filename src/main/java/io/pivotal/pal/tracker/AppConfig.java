@@ -13,14 +13,14 @@ import javax.sql.DataSource;
 public class AppConfig {
 
 
-    @ConditionalOnProperty (name="repo",havingValue="jdbc", matchIfMissing = false)
+    @ConditionalOnProperty (name="repo",havingValue="jdbc", matchIfMissing = true)
     @Bean
     public TimeEntryRepository jdbcRepository ( DataSource dataSource)
     {
             return new JdbcTimeEntryRepository(dataSource);
     }
 
-    @ConditionalOnProperty (name="repo",havingValue="inmem", matchIfMissing = true)
+    @ConditionalOnProperty (name="repo",havingValue="inmem", matchIfMissing = false)
     @Bean
     public TimeEntryRepository inMemoryRepository ( DataSource dataSource)
     {
